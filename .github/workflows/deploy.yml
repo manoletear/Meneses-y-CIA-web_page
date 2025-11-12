@@ -1,31 +1,47 @@
-7.2 Hires 2026 (expansión condicionada)
+name: Deploy Vite site to GitHub Pages
 
-Se activan solo si se cumplen gates de performance:
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
 
-Pipeline ≥ 4× cuota del rol
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
-Utilización delivery > 78 %
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
 
-Flujo libre mensual ≥ $40 MM CLP
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-Roles estimados:
+      - name: Install dependencies
+        run: npm install
 
-AI Product Manager
+      - name: Build project
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
+        run: npm run build
 
-MLOps Engineer
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./build
 
-QA Engineer
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
-Growth Leader
-
-Account Executive Sr
-
-Legal & Compliance
-
-HR Lead
-
-Costo adicional proyectado:
-$7–8 MM/mes → Total estructura 2026: $41–42 MM/mes
-
-Insight:
-Crecimiento del equipo sin sacrificar margen.
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
