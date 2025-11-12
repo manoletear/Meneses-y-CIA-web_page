@@ -1,35 +1,31 @@
-name: Deploy Vite App to GitHub Pages
+7.2 Hires 2026 (expansión condicionada)
 
-on:
-  push:
-    branches:
-      - zen-field  # <-- rama donde haces tus cambios
+Se activan solo si se cumplen gates de performance:
 
-permissions:
-  contents: write
+Pipeline ≥ 4× cuota del rol
 
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+Utilización delivery > 78 %
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+Flujo libre mensual ≥ $40 MM CLP
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+Roles estimados:
 
-      - name: Install dependencies
-        run: npm install
+AI Product Manager
 
-      - name: Build project
-        run: npm run build
+MLOps Engineer
 
-      - name: Deploy to GitHub Pages 🚀
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: gh-pages
+QA Engineer
+
+Growth Leader
+
+Account Executive Sr
+
+Legal & Compliance
+
+HR Lead
+
+Costo adicional proyectado:
+$7–8 MM/mes → Total estructura 2026: $41–42 MM/mes
+
+Insight:
+Crecimiento del equipo sin sacrificar margen.
