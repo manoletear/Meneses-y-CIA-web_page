@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meneses & Cía — Abogados</title>
+    <meta name="description" content="Meneses & Cía Abogados — Estrategia Legal, Litigación de Alta Complejidad y Consultoría en Santiago, Chile.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* ═══════════════════════════════════════════════
+           CSS CUSTOM PROPERTIES
+        ═══════════════════════════════════════════════ */
+        :root {
+            --color-bg-primary: #0a0e17;
+            --color-bg-secondary: #111827;
+            --color-bg-card: #1a2234;
+            --color-bg-card-hover: #1f2a40;
+            --color-accent: #d4a234;
+            --color-accent-light: #e8be5a;
+            --color-accent-dark: #b8891c;
+            --color-text: #e8e8e8;
+            --color-text-muted: #94a3b8;
+            --color-text-heading: #ffffff;
+            --color-border: rgba(212, 162, 52, 0.15);
+            --color-border-strong: rgba(212, 162, 52, 0.35);
+            --font-heading: 'Montserrat', system-ui, sans-serif;
+            --font-body: 'Montserrat', system-ui, sans-serif;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* ═══════════════════════════════════════════════
+           RESET & BASE
+        ═══════════════════════════════════════════════ */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg-primary);
+            color: var(--color-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: var(--color-accent);
+            color: var(--color-bg-primary);
+        }
+
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover { color: var(--color-accent-light); }
+
+        img { max-width: 100%; display: block; }
+
+        /* ═══════════════════════════════════════════════
+           SCROLL ANIMATIONS
+        ═══════════════════════════════════════════════ */
+        .reveal,
+        .reveal.visible,
+        .reveal-left,
+        .reveal-left.visible,
+        .reveal-right,
+        .reveal-right.visible,
+        .reveal-scale,
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ═══════════════════════════════════════════════
+           NAVIGATION
+        ═══════════════════════════════════════════════ */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            transition: all 0.5s var(--ease-out-quart);
+        }
+        .nav.scrolled {
+            background: rgba(10, 14, 23, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .nav-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+        }
+        .nav-logo-img {
+            height: 64px;
+            width: auto;
+            transition: height 0.4s var(--ease-out-quart);
+        }
+        .nav.scrolled .nav-logo-img {
+            height: 48px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--color-text-muted);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 4px;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-accent);
+            transition: width 0.4s var(--ease-out-expo);
+        }
+        .nav-links a:hover { color: var(--color-accent); }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* Mobile menu */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 8px;
+        }
+        .nav-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--color-text);
+            transition: all 0.3s ease;
+            display: block;
+        }
+        .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .nav-toggle.active span:nth-child(2) { opacity: 0; }
+        .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* ═══════════════════════════════════════════════
+           HERO SECTION
+        ═══════════════════════════════════════════════ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 40%;
+            display: block;
+        }
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            opacity: 0;
+            box-shadow: 0 0 4px 1px rgba(212, 162, 52, 0.42), 0 0 10px 3px rgba(212, 162, 52, 0.17);
+            animation: float-particle 7s infinite;
+        }
+        .particle.large {
+            width: 5px;
+            height: 5px;
+            box-shadow: 0 0 7px 2px rgba(212, 162, 52, 0.49), 0 0 18px 5px rgba(212, 162, 52, 0.21);
+        }
+        @keyframes float-particle {
+            0% { opacity: 0; transform: translateY(100vh) scale(0.3); }
+            8% { opacity: 0.63; }
+            50% { opacity: 0.7; }
+            85% { opacity: 0.49; }
+            100% { opacity: 0; transform: translateY(-15vh) scale(0.8); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            width: 100%;
+        }
+        .hero-eyebrow {
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s 0.3s var(--ease-out-expo) forwards;
+        }
+        .hero-eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--color-accent);
+        }
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 200;
+            color: var(--color-text-heading);
+            line-height: 1.05;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1.2s 0.5s var(--ease-out-expo) forwards;
+        }
+        .hero-title em {
+            font-style: italic;
+            color: var(--color-accent);
+        }
+        .hero-subtitle {
+            font-family: var(--font-heading);
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            font-weight: 300;
+            color: var(--color-text-muted);
+            letter-spacing: 0.15em;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeInUp 1.2s 0.7s var(--ease-out-expo) forwards;
+        }
+        .hero-cta-group {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            opacity: 0;
+            animation: fadeInUp 1s 0.9s var(--ease-out-expo) forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ═══════════════════════════════════════════════
+           BUTTONS
+        ═══════════════════════════════════════════════ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 1rem 2.2rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s var(--ease-out-expo);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary {
+            background: var(--color-accent);
+            color: var(--color-bg-primary);
+        }
+        .btn-primary:hover {
+            background: var(--color-accent-light);
+            color: var(--color-bg-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 162, 52, 0.25);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--color-text);
+            border: 1px solid var(--color-border-strong);
+        }
+        .btn-outline:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+            transform: translateY(-2px);
+        }
+        .btn svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+        .btn:hover svg { transform: translateX(4px); }
+
+        /* ═══════════════════════════════════════════════
+           SECTION BASE
+        ═══════════════════════════════════════════════ */
+        .section {
+            padding: 7rem 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .section-dark {
+            background: var(--color-bg-secondary);
+        }
+        .section-full {
+            max-width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .section-label::before {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--color-accent);
+        }
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            font-weight: 300;
+            color: var(--color-text-heading);
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--color-text-muted);
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        /* Gold divider line */
+        .divider {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-border-strong), transparent);
+        }
+
+
+        /* ═══════════════════════════════════════════════
+           FILOSOFÍA SECTION
+        ═══════════════════════════════════════════════ */
+        .filosofia-wrapper {
+            position: relative;
+        }
+        .filosofia {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .filosofia-text {}
+        .filosofia-text p {
+            font-size: 1.05rem;
+            color: var(--color-text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+        }
+        .filosofia-text p:first-of-type::first-letter {
+            font-family: var(--font-heading);
+            font-size: 3.2rem;
+            float: left;
+            line-height: 1;
+            margin-right: 0.5rem;
+            color: var(--color-accent);
+            font-weight: 700;
+        }
+        .filosofia-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        /* Stats row below text */
+        .filosofia-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            margin-top: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .stat-card {
+            background: transparent;
+            border: none;
+            padding: 1.2rem 1rem;
+            border-left: 1px solid rgba(212, 162, 52, 0.25);
+        }
+        .stat-card:first-child { border-left: none; }
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--color-accent);
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+        .stat-label {
+            font-size: 0.65rem;
+            color: var(--color-text-muted);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        /* ═══════════════════════════════════════════════
+           PILLARS / VALUES
+        ═══════════════════════════════════════════════ */
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            margin-top: 4rem;
+        }
+        .pillar {
+            padding: 3rem 2.5rem;
+            border: 1px solid var(--color-border);
+            border-right: none;
+            position: relative;
+            transition: all 0.5s var(--ease-out-expo);
+        }
+        .pillar:last-child { border-right: 1px solid var(--color-border); }
+        .pillar:hover {
+            background: var(--color-bg-card);
+            border-color: var(--color-border-strong);
+        }
+        .pillar:hover + .pillar { border-left-color: var(--color-border-strong); }
+        .pillar-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1.5rem;
+            color: var(--color-accent);
+        }
+        .pillar h3 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--color-text-heading);
+            margin-bottom: 1rem;
+        }
+        .pillar p {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            line-height: 1.7;
+        }
+
+        /* ═══════════════════════════════════════════════
+           EQUIPO SECTION
+        ═══════════════════════════════════════════════ */
+        .equipo-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .equipo-header .section-label { justify-content: center; }
+        .equipo-header .section-label::before { display: none; }
+        .equipo-header .section-subtitle { margin: 0 auto; }
+
+        /* Team cards grid */
+        .equipo-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            overflow: visible;
+            padding-left: 1rem;
+        }
+        .equipo-card {
+            position: relative;
+            cursor: pointer;
+        }
+        /* Small decorative square — offset top-left */
+        .equipo-card::before {
+            content: '';
+            position: absolute;
+            width: 28%;
+            aspect-ratio: 1;
+            background: #c0392b;
+            top: 8%;
+            left: -4%;
+            z-index: 2;
+            transition: transform 0.5s var(--ease-out-expo);
+            pointer-events: none;
+        }
+        .equipo-card:hover::before {
+            transform: translate(-3px, -3px);
+        }
+        .equipo-card-inner {
+            position: relative;
+            overflow: hidden;
+            background: #3a3a3a;
+            aspect-ratio: 3/4;
+            transition: box-shadow 0.5s var(--ease-out-expo);
+            z-index: 1;
+        }
+        .equipo-card:hover .equipo-card-inner {
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+        }
+        .equipo-card-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+            filter: grayscale(100%);
+            transition: filter 0.6s ease, transform 0.5s var(--ease-out-expo);
+        }
+        .equipo-card:hover .equipo-card-inner img {
+            filter: grayscale(0%);
+            transform: scale(1.03);
+        }
+        /* Name + LinkedIn below card */
+        .equipo-card-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0.2rem 0;
+        }
+        .equipo-card-name {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--color-text-heading);
+            letter-spacing: 0.03em;
+        }
+        .equipo-card-linkedin {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            color: var(--color-text-muted);
+            transition: all 0.3s ease;
+        }
+        .equipo-card-linkedin svg {
+            width: 18px;
+            height: 18px;
+        }
+        .equipo-card-linkedin:hover {
+            color: #0A66C2;
+        }
+        /* "Ver perfil" hint on Jorge */
+        .equipo-card[data-member] .equipo-card-inner::after {
+            content: 'Ver perfil';
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(8px);
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #fff;
+            background: rgba(10, 14, 23, 0.7);
+            backdrop-filter: blur(6px);
+            padding: 0.5rem 1.2rem;
+            opacity: 0;
+            transition: all 0.4s var(--ease-out-expo);
+            z-index: 3;
+            white-space: nowrap;
+        }
+        .equipo-card[data-member]:hover .equipo-card-inner::after {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Expandable profile panel */
+        .equipo-profile-expandable {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.7s var(--ease-out-expo), opacity 0.5s ease, margin-top 0.5s ease;
+            margin-top: 0;
+            position: relative;
+            z-index: 10;
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.4);
+        }
+        .equipo-profile-expandable.open {
+            max-height: 1000px;
+            opacity: 1;
+            margin-top: -12rem;
+        }
+        .equipo-profile-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--color-text-muted);
+            cursor: pointer;
+            border: 1px solid var(--color-border);
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+        .equipo-profile-close:hover {
+            color: var(--color-accent);
+            border-color: var(--color-accent);
+        }
+        .equipo-profile-linkedin {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            color: #0A66C2;
+            padding: 0.6rem 1.2rem;
+            border: 1px solid rgba(10, 102, 194, 0.3);
+            transition: all 0.3s ease;
+        }
+        .equipo-profile-linkedin svg {
+            width: 18px;
+            height: 18px;
+        }
+        .equipo-profile-linkedin:hover {
+            background: #0A66C2;
+            color: #fff;
+            border-color: #0A66C2;
+        }
+
+        /* Separator: Excelencia / Visión / Experiencia */
+        .equipo-separator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            padding: 3.5rem 0;
+        }
+        .equipo-separator-word {
+            font-family: var(--font-heading);
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            font-weight: 300;
+            color: var(--color-text-heading);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .equipo-separator-slash {
+            font-family: var(--font-heading);
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 200;
+            color: var(--color-accent);
+        }
+
+        /* Profile grid layout */
+        .equipo-profile {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: start;
+            margin-top: 0;
+            padding: 3rem 3rem 2.5rem;
+        }
+        .equipo-profile-photo {
+            position: relative;
+            max-width: 460px;
+        }
+        .equipo-profile-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+            mask-image:
+                linear-gradient(to bottom, black 70%, transparent 100%),
+                linear-gradient(to top, black 70%, transparent 100%),
+                linear-gradient(to right, black 70%, transparent 100%),
+                linear-gradient(to left, black 70%, transparent 100%);
+            mask-composite: intersect;
+            -webkit-mask-image:
+                linear-gradient(to bottom, black 75%, transparent 98%),
+                linear-gradient(to top, black 85%, transparent 100%),
+                linear-gradient(to right, black 75%, transparent 98%),
+                linear-gradient(to left, black 85%, transparent 100%);
+            -webkit-mask-composite: source-in;
+        }
+        .equipo-profile-content .equipo-profile-name {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 300;
+            color: var(--color-text-heading);
+            margin-bottom: 0.4rem;
+        }
+        .equipo-profile-content .equipo-profile-role {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 2rem;
+        }
+        .equipo-profile-content p {
+            font-size: 1rem;
+            color: var(--color-text-muted);
+            line-height: 1.9;
+            margin-bottom: 1.2rem;
+        }
+        .equipo-profile-accent-line {
+            width: 50px;
+            height: 2px;
+            background: var(--color-accent);
+            margin-bottom: 2rem;
+        }
+
+        /* ═══════════════════════════════════════════════
+           ÁREAS DE PRÁCTICA
+        ═══════════════════════════════════════════════ */
+        /* Banner image with B&W → color effect */
+        .practica-banner {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+        .practica-banner img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            object-position: center 30%;
+            display: block;
+            filter: grayscale(100%) brightness(0.85);
+            transition: filter 0.8s ease;
+        }
+        .practica-banner:hover img {
+            filter: grayscale(0%) brightness(1);
+        }
+        .practica-banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--color-bg-primary) 0%, rgba(10, 14, 23, 0.25) 40%, transparent 100%);
+            pointer-events: none;
+        }
+        .practica-banner-content {
+            position: absolute;
+            bottom: 2rem;
+            left: 2.5rem;
+            right: 2.5rem;
+            z-index: 1;
+        }
+        .practica-banner-content .section-label {
+            color: var(--color-accent);
+        }
+        .practica-banner-content .section-title {
+            margin-bottom: 0.8rem;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+        }
+        .practica-banner-content .section-subtitle {
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Two-column practice areas */
+        .practica-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border: 1px solid var(--color-border);
+        }
+        .practica-col {
+            padding: 2.5rem;
+            transition: background 0.4s ease;
+        }
+        .practica-col:first-child {
+            border-right: 1px solid var(--color-border);
+        }
+        .practica-col:hover {
+            background: var(--color-bg-card);
+        }
+        .practica-col h3 {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--color-text-heading);
+            margin-bottom: 1.2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .practica-col p {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .practica-col p em {
+            color: var(--color-accent);
+            font-style: italic;
+            font-size: 0.85rem;
+        }
+
+        /* ═══════════════════════════════════════════════
+           CONTACTO SECTION
+        ═══════════════════════════════════════════════ */
+        .contacto {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+        .contacto-info-block {
+            margin-bottom: 2.5rem;
+        }
+        .contacto-info-block h4 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 0.8rem;
+        }
+        .contacto-info-block p {
+            font-size: 1rem;
+            color: var(--color-text-muted);
+            line-height: 1.8;
+        }
+        .contacto-info-block a {
+            color: var(--color-text);
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
+        }
+        .contacto-info-block a:hover {
+            color: var(--color-accent);
+            border-bottom-color: var(--color-accent);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .form-group {
+            position: relative;
+        }
+        .form-group label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-text-muted);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            color: var(--color-text);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 2px rgba(212, 162, 52, 0.1);
+        }
+        .form-group textarea {
+            min-height: 160px;
+            resize: vertical;
+            rows: 6;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
+
+        /* ═══════════════════════════════════════════════
+           FOOTER
+        ═══════════════════════════════════════════════ */
+        .footer {
+            background: var(--color-bg-secondary);
+            border-top: 1px solid var(--color-border);
+            padding: 3rem 2rem;
+        }
+        .footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+        }
+        .footer-logo-img {
+            height: 56px;
+            width: auto;
+        }
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+        }
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--color-border);
+            color: var(--color-text-muted);
+            transition: all 0.3s ease;
+        }
+        .footer-social a:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+            transform: translateY(-2px);
+        }
+        .footer-social svg { width: 18px; height: 18px; }
+
+        /* ═══════════════════════════════════════════════
+           SCROLL PROGRESS
+        ═══════════════════════════════════════════════ */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-accent-dark), var(--color-accent), var(--color-accent-light));
+            z-index: 1001;
+            transform-origin: left;
+            transform: scaleX(0);
+            transition: transform 0.1s linear;
+        }
+
+        /* ═══════════════════════════════════════════════
+           CURSOR GLOW (desktop only)
+        ═══════════════════════════════════════════════ */
+        .cursor-glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 162, 52, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease;
+        }
+
+        /* ═══════════════════════════════════════════════
+           RESPONSIVE
+        ═══════════════════════════════════════════════ */
+        @media (max-width: 1024px) {
+            .filosofia { grid-template-columns: 1fr; gap: 2.5rem; }
+            .filosofia-stats { grid-template-columns: repeat(2, 1fr); }
+            .stat-card:nth-child(3),
+            .stat-card:nth-child(4) { border-top: 1px solid rgba(212, 162, 52, 0.15); }
+            .stat-number { font-size: 1.6rem; }
+            .equipo-profile { grid-template-columns: 1fr; gap: 2.5rem; }
+            .equipo-profile-photo { max-width: 400px; }
+            .pillars { grid-template-columns: 1fr; }
+            .pillar { border-right: 1px solid var(--color-border); border-bottom: none; }
+            .pillar:last-child { border-bottom: 1px solid var(--color-border); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10, 14, 23, 0.98);
+                backdrop-filter: blur(20px);
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--color-border);
+            }
+            .nav-toggle { display: flex; }
+            .nav-logo-img { height: 48px; }
+            .nav.scrolled .nav-logo-img { height: 38px; }
+            .footer-logo-img { height: 44px; }
+            .hero-title { font-size: clamp(2.5rem, 10vw, 4rem); }
+            .equipo-separator { gap: 1rem; padding: 2.5rem 0; }
+            .equipo-profile { grid-template-columns: 1fr; gap: 2rem; }
+            .equipo-profile-photo { max-width: 350px; }
+            .hero-cta-group { flex-direction: column; align-items: flex-start; }
+            .equipo-grid { grid-template-columns: repeat(2, 1fr); }
+            .equipo-cards { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+            .equipo-profile { grid-template-columns: 1fr; }
+            .practica-grid { grid-template-columns: 1fr; }
+            .contacto { grid-template-columns: 1fr; gap: 3rem; }
+            .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
+            .form-row { grid-template-columns: 1fr; }
+            .section { padding: 4rem 1.5rem; }
+            .cursor-glow { display: none; }
+            .practica-columns { grid-template-columns: 1fr; }
+            .practica-col:first-child { border-right: none; border-bottom: 1px solid var(--color-border); }
+        }
+
+        @media (max-width: 480px) {
+            .equipo-grid { grid-template-columns: 1fr; width: 100%; }
+            .equipo-cards { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .filosofia-stats { grid-template-columns: 1fr; }
+            .filosofia-text p:first-of-type::first-letter {
+                font-size: 1rem;
+                float: none;
+                margin-right: 0;
+            }
+            .hero-title { font-size: clamp(2rem, 8vw, 3.5rem); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- ═══════════════════════════════════════════════
+         NAVIGATION
+    ═══════════════════════════════════════════════ -->
+    <nav class="nav" id="mainNav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo"><img src="Imagenes/Logo_Header.png" alt="Meneses & Cía Abogados" class="nav-logo-img"></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#filosofia">Filosofía</a></li>
+                <li><a href="#equipo">Equipo</a></li>
+                <li><a href="#practica">Áreas de Práctica</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Menú">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <!-- ═══════════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════════ -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="Imagenes/hero.png" alt="Santiago skyline">
+        </div>
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="hero-content">
+            <div class="hero-eyebrow">Estudio Jurídico — Santiago, Chile</div>
+            <h1 class="hero-title">Meneses <em>&</em> Cía<br>Abogados</h1>
+            <p class="hero-subtitle">Estrategia Legal &nbsp;/&nbsp; Litigación &nbsp;/&nbsp; Consultoría</p>
+            <div class="hero-cta-group">
+                <a href="#contacto" class="btn btn-primary">
+                    Contáctenos
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+                <a href="#practica" class="btn btn-outline">Nuestras Áreas</a>
+            </div>
+        </div>
+    </section>
+    <div class="divider"></div>
+
+    <!-- ═══════════════════════════════════════════════
+         FILOSOFÍA
+    ═══════════════════════════════════════════════ -->
+    <section class="section" id="filosofia">
+        <div class="filosofia">
+            <div class="filosofia-text reveal-left">
+                <div class="section-label">Nuestra Filosofía</div>
+                <h2 class="section-title">Experiencia que se<br>traduce en <em style="font-family:var(--font-heading);color:var(--color-accent);font-style:italic;">resultados</em></h2>
+                <p>Meneses & Cía representa la experiencia y visión acumulada de su fundador, forjada en su participación en múltiples conflictos relevantes, y en la asesoría legal estratégica y acompañamiento de importantes empresas de distintos rubros: minería, sector financiero, corporaciones de derecho privado y personas naturales de alto patrimonio.</p>
+                <p>La firma nace con un estándar de servicio probado, proyectando una visión estratégica madurada en el ejercicio de litigios de alta complejidad. Hoy, esa experiencia se traduce en una oficina ágil y moderna, en la que confluyen abogados y consultores de reconocida trayectoria.</p>
+            </div>
+            <div class="reveal-right">
+                <img src="Imagenes/img-home-1.jpg" alt="Equipo Meneses & Cía" class="filosofia-img">
+            </div>
+        </div>
+        <!-- KPIs centrados debajo -->
+        <div class="filosofia-stats stagger reveal">
+            <div class="stat-card" style="--i:0">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Años de experiencia</div>
+            </div>
+            <div class="stat-card" style="--i:1">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Profesionales</div>
+            </div>
+            <div class="stat-card" style="--i:2">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Casos resueltos</div>
+            </div>
+            <div class="stat-card" style="--i:3">
+                <div class="stat-number">360°</div>
+                <div class="stat-label">Visión estratégica</div>
+            </div>
+        </div>
+
+        <!-- Pillars -->
+        <div class="pillars reveal stagger">
+            <div class="pillar" style="--i:0">
+                <svg class="pillar-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="24" cy="24" r="20"/><path d="M24 14v20M14 24h20"/>
+                </svg>
+                <h3>Excelencia</h3>
+                <p>Compromiso con los más altos estándares de práctica jurídica, combinando rigurosidad técnica con un enfoque orientado a soluciones concretas.</p>
+            </div>
+            <div class="pillar" style="--i:1">
+                <svg class="pillar-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M24 4l6 12h14l-11 8 4 14-13-9-13 9 4-14L4 16h14z"/>
+                </svg>
+                <h3>Visión</h3>
+                <p>Capacidad de anticipar escenarios y diseñar estrategias legales que trascienden el caso individual, protegiendo los intereses a largo plazo del cliente.</p>
+            </div>
+            <div class="pillar" style="--i:2">
+                <svg class="pillar-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="6" y="6" width="36" height="36" rx="4"/><path d="M6 18h36M18 6v36"/>
+                </svg>
+                <h3>Experiencia</h3>
+                <p>Trayectoria probada en litigios de alta complejidad, derecho administrativo, regulatorio y en asesoría corporativa a empresas líderes de diversos sectores.</p>
+            </div>
+        </div>
+    </section>
+    <div class="divider"></div>
+
+    <!-- ═══════════════════════════════════════════════
+         EQUIPO
+    ═══════════════════════════════════════════════ -->
+    <section class="section" id="equipo">
+        <div class="equipo-header reveal">
+            <div class="section-label">Nuestro Equipo</div>
+            <h2 class="section-title">Profesionales de<br>reconocida trayectoria</h2>
+            <p class="section-subtitle">Abogados y consultores que combinan profundidad técnica con visión estratégica de negocios.</p>
+        </div>
+
+        <!-- Cards del equipo: Jorge, Martín, Fernanda, Agustín -->
+        <div class="equipo-cards stagger">
+            <div class="equipo-card reveal-scale" style="--i:0" data-member="jorge" onclick="toggleProfile(this)">
+                <div class="equipo-card-inner">
+                    <img src="Imagenes/fto-team-01-trans.png" alt="Jorge Meneses Rojas">
+                </div>
+                <div class="equipo-card-bottom">
+                    <div class="equipo-card-name">Jorge Meneses</div>
+                    <a href="https://www.linkedin.com/in/jorge-meneses-rojas/" target="_blank" rel="noopener" class="equipo-card-linkedin" onclick="event.stopPropagation()">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="equipo-card reveal-scale" style="--i:1" data-member="martin" onclick="toggleProfile(this)">
+                <div class="equipo-card-inner">
+                    <img src="Imagenes/fto-team-02-trans.png" alt="Martín Besio">
+                </div>
+                <div class="equipo-card-bottom">
+                    <div class="equipo-card-name">Martín Besio H.</div>
+                    <a href="https://www.linkedin.com/in/mart%C3%ADn-besio-h-74667b3a/" target="_blank" rel="noopener" class="equipo-card-linkedin" onclick="event.stopPropagation()">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="equipo-card reveal-scale" style="--i:2" data-member="fernanda" onclick="toggleProfile(this)">
+                <div class="equipo-card-inner">
+                    <img src="Imagenes/fto-team-04-trans.png" alt="Fernanda Villalobos">
+                </div>
+                <div class="equipo-card-bottom">
+                    <div class="equipo-card-name">Fernanda Villalobos</div>
+                    <a href="#" class="equipo-card-linkedin" onclick="event.stopPropagation()">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="equipo-card reveal-scale" style="--i:3" data-member="agustin" onclick="toggleProfile(this)">
+                <div class="equipo-card-inner">
+                    <img src="Imagenes/fto-team-03-trans.png" alt="Agustín Díaz">
+                </div>
+                <div class="equipo-card-bottom">
+                    <div class="equipo-card-name">Agustín Díaz</div>
+                    <a href="https://www.linkedin.com/in/agust%C3%ADn-d%C3%ADaz-mack-331317101/" target="_blank" rel="noopener" class="equipo-card-linkedin" onclick="event.stopPropagation()">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Perfil expandible de Jorge -->
+        <div class="equipo-profile-expandable" id="jorgeProfile">
+            <div class="equipo-profile-close" onclick="closeProfile()">&times;</div>
+            <div class="equipo-profile">
+                <div class="equipo-profile-photo">
+                    <img src="Imagenes/jorge-meneses-perfil.png" alt="Jorge Meneses Rojas — Socio Fundador">
+                </div>
+                <div class="equipo-profile-content">
+                    <div class="equipo-profile-accent-line"></div>
+                    <div class="equipo-profile-name">Jorge Meneses Rojas</div>
+                    <div class="equipo-profile-role">Socio Fundador</div>
+                    <p>Jorge es socio en el área de litigios civiles y comerciales, y líder del área de derecho público, administrativo y regulatorio de nuestra oficina en Santiago.</p>
+                    <p>Ha actuado como abogado y asesor principal en múltiples litigios complejos, liderando equipos interdisciplinarios, coordinando estrategias y manteniendo una relación directa e inmediata con clientes, incluyendo sociedades anónimas abiertas, personas naturales, family offices y empresas privadas.</p>
+                    <p>Su experiencia en controversias incluye la representación en materias de seguros e infraestructura, asesorando a diversas compañías de seguros y grupos empresariales vinculados al desarrollo, construcción y administración de proyectos inmobiliarios.</p>
+                    <a href="https://www.linkedin.com/in/jorge-meneses-rojas/" target="_blank" rel="noopener" class="equipo-profile-linkedin">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        Ver perfil en LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Perfil expandible de Martín -->
+        <div class="equipo-profile-expandable" id="martinProfile">
+            <div class="equipo-profile-close" onclick="closeProfile()">&times;</div>
+            <div class="equipo-profile">
+                <div class="equipo-profile-photo">
+                    <img src="Imagenes/fto-team-02-trans.png" alt="Martín Besio H. — Abogado Penalista">
+                </div>
+                <div class="equipo-profile-content">
+                    <div class="equipo-profile-accent-line"></div>
+                    <div class="equipo-profile-name">Martín Besio H.</div>
+                    <div class="equipo-profile-role">Abogado Penalista · Doctor en Derecho</div>
+                    <p>Martín es Doctor en Derecho por la Universidad de Barcelona, Magíster en Derecho Penal y Ciencias Penales por la Universidad de Barcelona y la Universidad Pompeu Fabra, y Magíster en Derecho Constitucional e Instituciones Públicas por la Universidad Diego Portales.</p>
+                    <p>Su trayectoria combina el ejercicio profesional con la academia: es Profesor Asociado de Derecho Penal en la UDP, donde además se desempeñó como Coordinador Académico del programa de Magíster en Derecho Penal y Procesal Penal. Ha sido abogado penalista y socio en Otto Abogados, y abogado asociado en Rivadeneira/Colombara/Zegers Abogados.</p>
+                    <p>Su experiencia internacional incluye labores como consultor y asesor en materia de reformas a la justicia para la Agencia de Cooperación Técnica Alemana (GTZ) y la Asociación Pro Justicia en Perú, además de una investigación postdoctoral en la Universidad de Barcelona. Es autor de múltiples publicaciones especializadas en individualización de la pena, discrecionalidad judicial, sistema de ejecución penal y derechos humanos.</p>
+                    <a href="https://www.linkedin.com/in/mart%C3%ADn-besio-h-74667b3a/" target="_blank" rel="noopener" class="equipo-profile-linkedin">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        Ver perfil en LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Perfil expandible de Fernanda -->
+        <div class="equipo-profile-expandable" id="fernandaProfile">
+            <div class="equipo-profile-close" onclick="closeProfile()">&times;</div>
+            <div class="equipo-profile">
+                <div class="equipo-profile-photo">
+                    <img src="Imagenes/fto-team-04-trans.png" alt="Fernanda Villalobos — Abogada Asociada">
+                </div>
+                <div class="equipo-profile-content">
+                    <div class="equipo-profile-accent-line"></div>
+                    <div class="equipo-profile-name">Fernanda Villalobos</div>
+                    <div class="equipo-profile-role">Abogada Asociada</div>
+                    <p>Fernanda forma parte del equipo jurídico de la firma, colaborando en materias de litigación civil y comercial, así como en la gestión de asuntos regulatorios y administrativos.</p>
+                    <p>Participa en la preparación de estrategias procesales, investigación jurídica y apoyo en la conducción de causas complejas ante tribunales ordinarios y organismos fiscalizadores.</p>
+                    <a href="#" class="equipo-profile-linkedin" style="pointer-events:none;opacity:0.4;">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        LinkedIn no disponible
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Perfil expandible de Agustín -->
+        <div class="equipo-profile-expandable" id="agustinProfile">
+            <div class="equipo-profile-close" onclick="closeProfile()">&times;</div>
+            <div class="equipo-profile">
+                <div class="equipo-profile-photo">
+                    <img src="Imagenes/fto-team-03-trans.png" alt="Agustín Díaz — Abogado Senior">
+                </div>
+                <div class="equipo-profile-content">
+                    <div class="equipo-profile-accent-line"></div>
+                    <div class="equipo-profile-name">Agustín Díaz</div>
+                    <div class="equipo-profile-role">Abogado Senior</div>
+                    <p>Agustín es abogado senior de la firma con amplia experiencia en litigación civil, comercial y de seguros. Asesora a compañías de seguros, reaseguradoras y empresas en la gestión y resolución de controversias complejas.</p>
+                    <p>Su práctica incluye arbitrajes nacionales, juicios de alta cuantía y procedimientos ante organismos reguladores, aportando una visión estratégica orientada a la protección de los intereses de sus clientes.</p>
+                    <a href="https://www.linkedin.com/in/agust%C3%ADn-d%C3%ADaz-mack-331317101/" target="_blank" rel="noopener" class="equipo-profile-linkedin">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        Ver perfil en LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="divider"></div>
+
+    <!-- ═══════════════════════════════════════════════
+         ÁREAS DE PRÁCTICA
+    ═══════════════════════════════════════════════ -->
+    <section class="section section-full" id="practica" style="padding-top:0;padding-bottom:7rem;">
+        <!-- Banner con imagen B&W → color on hover -->
+        <div class="practica-banner reveal">
+            <img src="Imagenes/banner-practicas.png" alt="Reunión de abogados Meneses & Cía">
+            <div class="practica-banner-overlay"></div>
+            <div class="practica-banner-content">
+                <div class="section-label">Áreas de Práctica</div>
+                <h2 class="section-title">Expertise legal de<br>alta complejidad</h2>
+                <p class="section-subtitle">Nuestras áreas de práctica reflejan décadas de experiencia en los asuntos jurídicos más exigentes del mercado chileno.</p>
+            </div>
+        </div>
+
+        <!-- Dos columnas de práctica -->
+        <div style="max-width:1280px;margin:0 auto;padding:0 2rem;">
+            <div class="practica-columns reveal">
+                <div class="practica-col">
+                    <h3>Litigación de Alta Complejidad</h3>
+                    <p>El núcleo de la experiencia de la firma.</p>
+                    <p>Representación en arbitrajes y juicios en materias civiles y comerciales, incluyendo conflictos entre accionistas, disputas sobre pactos de accionistas, patrimonios familiares, y materias de seguros y reaseguros.</p>
+                    <p><em>Esta práctica se complementa con una acreditada experiencia en procesos contencioso administrativos ante la CMF, Superintendencias, Seremis, ISP, y otros organismos fiscalizadores.</em></p>
+                </div>
+                <div class="practica-col">
+                    <h3>Dirección Jurídica y Gestión de Riesgos Estratégicos</h3>
+                    <p>Las organizaciones enfrentan de manera permanente decisiones con implicancias jurídicas relevantes: operaciones corporativas, relaciones contractuales de largo plazo, exposición regulatoria y conflictos que alteran el curso del negocio. La dirección jurídica externa consiste en asumir la conducción legal de esas materias de forma continua, integrada al funcionamiento de la organización.</p>
+                    <p>En la práctica, eso implica participar en instancias de decisión internas —directorios, comités, negociaciones—, revisar y estructurar operaciones antes de su ejecución, y mantener una visión actualizada de la posición jurídica de la organización en cada uno de sus frentes.</p>
+                    <p><em>La gestión de riesgos estratégicos es el componente preventivo de esa función: identificar y jerarquizar las contingencias legales, regulatorias y contractuales antes de que se activen, y conducir su gestión cuando ya se han materializado.</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="divider"></div>
+
+    <!-- ═══════════════════════════════════════════════
+         CONTACTO
+    ═══════════════════════════════════════════════ -->
+    <section class="section" id="contacto">
+        <div class="contacto">
+            <div class="reveal-left">
+                <div class="section-label">Contacto</div>
+                <h2 class="section-title">Conversemos sobre<br>su caso</h2>
+                <div class="contacto-info-block">
+                    <h4>Dirección</h4>
+                    <p>Francisco de Aguirre 3720, Oficina 34<br>Vitacura, Santiago, Chile</p>
+                </div>
+                <div class="contacto-info-block">
+                    <h4>Teléfono</h4>
+                    <p><a href="tel:+56226507000">+56 2 2650 7000</a></p>
+                </div>
+                <div class="contacto-info-block">
+                    <h4>Email</h4>
+                    <p><a href="mailto:contacto@menesesycia.cl">contacto@menesesycia.cl</a></p>
+                </div>
+                <div class="contacto-info-block">
+                    <h4>LinkedIn</h4>
+                    <p><a href="https://www.linkedin.com/in/jorge-meneses-rojas/" target="_blank" rel="noopener">Jorge Meneses Rojas</a></p>
+                    <p><a href="https://www.linkedin.com/in/mart%C3%ADn-besio-h-74667b3a/" target="_blank" rel="noopener">Martín Besio</a></p>
+                    <p><a href="https://www.linkedin.com/in/agust%C3%ADn-d%C3%ADaz-mack-331317101/" target="_blank" rel="noopener">Agustín Díaz</a></p>
+                </div>
+            </div>
+            <div class="reveal-right">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Su nombre completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="su@email.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="+56 9 XXXX XXXX">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="Cuéntenos brevemente sobre su consulta..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+                        Enviar Consulta
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- ═══════════════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════════════ -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo"><img src="Imagenes/Logo_Header.png" alt="Meneses & Cía Abogados" class="footer-logo-img"></div>
+            <div class="footer-copy">&copy; 2026 Meneses & Cía Abogados. Todos los derechos reservados.</div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/jorge-meneses-rojas/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="mailto:contacto@menesesycia.cl" aria-label="Email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════════════
+         JAVASCRIPT
+    ═══════════════════════════════════════════════ -->
+    <script>
+        /* ─── Scroll Reveal ─── */
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -80px 0px',
+            threshold: 0.1
+        };
+
+        /* Reveal animations removed — standard scroll */
+
+        /* ─── Nav Scroll Effect ─── */
+        const nav = document.getElementById('mainNav');
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            if (scrollY > 80) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+            lastScroll = scrollY;
+        }, { passive: true });
+
+
+        /* ─── Scroll Progress Bar ─── */
+        const progressBar = document.getElementById('scrollProgress');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollTop / docHeight;
+            progressBar.style.transform = `scaleX(${progress})`;
+        }, { passive: true });
+
+        /* ─── Mobile Nav Toggle ─── */
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+        /* ─── Smooth Scroll for Nav ─── */
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', (e) => {
+                const targetId = a.getAttribute('href');
+                if (!targetId || targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (!target) return;
+                e.preventDefault();
+                const navHeight = 80;
+                const targetTop = target.getBoundingClientRect().top + window.scrollY - navHeight;
+                window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        /* ─── Cursor Glow (desktop) ─── */
+        const cursorGlow = document.getElementById('cursorGlow');
+        if (window.matchMedia('(pointer: fine)').matches) {
+            document.addEventListener('mousemove', (e) => {
+                cursorGlow.style.left = e.clientX + 'px';
+                cursorGlow.style.top = e.clientY + 'px';
+            });
+        }
+
+        /* ─── Hero Particles ─── */
+        const particlesContainer = document.getElementById('heroParticles');
+        for (let i = 0; i < 50; i++) {
+            const p = document.createElement('div');
+            p.classList.add('particle');
+            if (Math.random() > 0.7) p.classList.add('large');
+            p.style.left = Math.random() * 100 + '%';
+            p.style.animationDelay = Math.random() * 10 + 's';
+            p.style.animationDuration = (5 + Math.random() * 7) + 's';
+            particlesContainer.appendChild(p);
+        }
+
+        /* ─── Smooth Anchor Scroll ─── */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const offset = 80;
+                    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+
+        /* ─── Profile Toggle (all members) ─── */
+        const profileMap = {
+            jorge: 'jorgeProfile',
+            martin: 'martinProfile',
+            fernanda: 'fernandaProfile',
+            agustin: 'agustinProfile'
+        };
+
+        function toggleProfile(card) {
+            const member = card.dataset.member;
+            const panelId = profileMap[member];
+            if (!panelId) return;
+            const panel = document.getElementById(panelId);
+            const isOpen = panel.classList.contains('open');
+
+            // Close all open profiles first
+            closeProfile();
+
+            if (!isOpen) {
+                panel.classList.add('open');
+                setTimeout(() => {
+                    const navHeight = 80;
+                    const panelTop = panel.getBoundingClientRect().top + window.scrollY - navHeight - 10;
+                    window.scrollTo({ top: panelTop, behavior: 'smooth' });
+                }, 500);
+            }
+        }
+        function closeProfile() {
+            document.querySelectorAll('.equipo-profile-expandable.open').forEach(p => {
+                p.classList.remove('open');
+            });
+        }
+
+        /* ─── Contact Form ─── */
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            btn.innerHTML = 'Enviado ✓';
+            btn.style.background = '#2d6a4f';
+            setTimeout(() => {
+                btn.innerHTML = 'Enviar Consulta <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
+                btn.style.background = '';
+                this.reset();
+            }, 2500);
+        });
+
+        /* ─── Counter Animation ─── */
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const text = el.textContent;
+                    const num = parseInt(text);
+                    if (!isNaN(num) && !el.dataset.counted) {
+                        el.dataset.counted = 'true';
+                        let current = 0;
+                        const suffix = text.replace(/\d+/, '');
+                        const step = Math.ceil(num / 40);
+                        const interval = setInterval(() => {
+                            current += step;
+                            if (current >= num) {
+                                current = num;
+                                clearInterval(interval);
+                            }
+                            el.textContent = current + suffix;
+                        }, 30);
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+        statNumbers.forEach(el => counterObserver.observe(el));
+
+        /* Parallax removed — standard scroll */
+    </script>
+</body>
+</html>
